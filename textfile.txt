@@ -1,0 +1,46 @@
+purchase_data_unique["Age Group"] = pd.cut(purchase_data["Age"], bins, labels=group_names, right=False)
+purchase_group = purchase_data_unique
+.groupby("Age Group")
+purchase_group
+p = purchase_group["Age"].count()
+p1 = round((p/576)*100 , 2)
+df4 = pd.DataFrame({"" : group_names,
+                     "Total Count" : p,
+                      "Percentage of Players" : p1             
+                    })
+df4
+df4.set_index("")
+
+
+
+def f(x):
+    d = {}
+    d['purchase_cnt'] = x['Purchase ID'].count()
+    d['avg_purchase_price'] = x['Price'].mean()
+    d['total_purchase_price'] = x['Price'].sum()
+    
+    return pd.Series(d, index=['purchase_cnt', 'avg_purchase_price','total_purchase_price'])
+  
+
+khan_p = format(round((khan_votes / Total) * 100.0 ,5) , '.3f')
+       
+correy_p = format(round((correy_votes / Total ) * 100.0 ,5) , '.3f')
+       
+li_p = format(round((li_votes / Total) * 100.0 , 5) , '.3f')
+       
+tooly_p = format(round((tooly_votes / Total) * 100.0 ,5) , '.3f') 
+
+### Heroes Of Pymoli Data Analysis
+* Of the 576 active players, the vast majority are male (84%). There also exists, a smaller, but notable proportion of female players (14%).
+
+* Our peak age demographic falls between 20-24 (44.80%) with secondary groups falling between 15-19 (18.60%) and 25-29 (13.40%).  
+
+* Our most popular and profitable item are Oathbreaker and  Last Hope of the Breaking Storm.
+
+* Out of 5 Top spender majority(4) are male and a female.
+----- 
+
+
+
+http://localhost:8888/notebooks/Desktop/GeorgiaTech/Assignments/Pandas/HeroesOfPymoli_starter.ipynb
+
